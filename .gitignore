@@ -1,0 +1,13 @@
+# Project place file
+/Game 1.rbxlx
+
+# Roblox Studio lock files
+/*.rbxlx.lock
+/*.rbxl.lock
+
+sourcemap.json
+
+# Roblox local/build files
+*.rbxl
+*.rbxl.lock
+*.rbxlx

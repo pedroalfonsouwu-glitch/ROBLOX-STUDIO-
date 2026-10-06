@@ -1,0 +1,120 @@
+{
+  "name": "Game 1",
+  "tree": {
+    "$className": "DataModel",
+    "Lighting": {
+      "$properties": {
+        "Ambient": [
+          0.38823530077934265,
+          0.3607843220233917,
+          0.3019607961177826
+        ],
+        "Brightness": 2.5,
+        "EnvironmentDiffuseScale": 1.0,
+        "EnvironmentSpecularScale": 1.0,
+        "FogColor": [
+          0.7529412508010864,
+          0.7529412508010864,
+          0.7529412508010864
+        ],
+        "GeographicLatitude": -19.996973037719727,
+        "GlobalShadows": true,
+        "LightingStyle": "Realistic",
+        "OutdoorAmbient": [
+          0.5607843399047852,
+          0.45490196347236633,
+          0.364705890417099
+        ],
+        "Outlines": false,
+        "PrioritizeLightingQuality": true,
+        "ShadowSoftness": 0.0,
+        "Technology": "Future",
+        "TimeOfDay": "13:45:37"
+      },
+      "$attributes": {
+        "UseCurrentLighting": false
+      },
+      "$path": "src/Lighting"
+    },
+    "ReplicatedStorage": {
+      "$path": "src/ReplicatedStorage"
+    },
+    "ServerScriptService": {
+      "$path": "src/ServerScriptService"
+    },
+    "ServerStorage": {
+      "$path": "src/ServerStorage"
+    },
+    "SoundService": {
+      "$properties": {
+        "RespectFilteringEnabled": true
+      },
+      "$path": "src/SoundService"
+    },
+    "StarterGui": {
+      "$properties": {
+        "ScreenOrientation": "Sensor"
+      },
+      "$path": "src/StarterGui"
+    },
+    "StarterPack": {
+      "$path": "src/StarterPack"
+    },
+    "StarterPlayer": {
+      "$properties": {
+        "AvatarJointUpgrade": "Enabled",
+        "CameraMaxZoomDistance": 128.0,
+        "CharacterBreakJointsOnDeath": false,
+        "CharacterUseJumpPower": false
+      },
+      "$path": "src/StarterPlayer"
+    },
+    "Teams": {
+      "$path": "src/Teams"
+    },
+    "Workspace": {
+      "$properties": {
+        "CollisionGroupData": {
+          "BinaryString": "AQMABPv///8HRGVmYXVsdAEE+////xBTdHVkaW9TZWxlY3RhYmxlAgT8////GVBsdWdpbl9VbnNlbGVjdGFibGVfR3JvdXA="
+        },
+        "Gravity": 140.0,
+        "PhysicsSteppingMethod": "Fixed",
+        "PlayerCharacterDestroyBehavior": "Enabled",
+        "PlayerScriptsUseInputActionSystem": "Enabled",
+        "StreamOutBehavior": "Opportunistic",
+        "StreamingEnabled": true,
+        "StreamingIntegrityMode": "PauseOutsideLoadedArea",
+        "WorldPivotData": {
+          "OptionalCFrame": {
+            "position": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "orientation": [
+              [
+                1.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                1.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          }
+        }
+      },
+      "$attributes": {
+        "Rojo_Target_CurrentCamera": "62005c44bbb9e68b0ad5da8b00000dca"
+      },
+      "$path": "src/Workspace"
+    }
+  }
+}
