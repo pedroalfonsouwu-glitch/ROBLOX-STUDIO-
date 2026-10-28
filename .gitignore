@@ -17,8 +17,11 @@ sourcemap.json
 /.tools/
 /assets/downloads/
 /assets/source/
-/assets/original/
+/assets/original/*
+!/assets/original/tree_pineSmallD.obj
 /docs/evidence/
+/docs/*
+!/docs/RESULTADOS_Y_CELEBRACION_V13.md
 /tools/audit/
 /AUDIT_ROBLOX_ZERO_LOSS.md
 /aftman.toml

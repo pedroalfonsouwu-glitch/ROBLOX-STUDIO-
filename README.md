@@ -20,7 +20,7 @@ rojo build default.project.json -o build/HombreLobo.rbxlx
 
 El archivo generado se guarda localmente y no se versiona. El proyecto conserva la plantilla original en las rutas antiguas, pero `default.project.json` importa el juego Hombre Lobo.
 
-El árbol `assets/roblox/Tree.rbxmx` procede de Nature Kit de Kenney, bajo CC0. Su licencia y datos de conversión están junto al asset. La música de victoria es **Favela Funk** de APMOfficial, Creator Store ID `1841682637`; es un asset gratuito para experiencias Roblox, no dominio público. La danza es una adaptación manual para rigs R6 y R15 de la referencia indicada por el usuario, no un emote descargado.
+El árbol `assets/roblox/Tree.rbxmx` procede de Nature Kit de Kenney, bajo CC0. Su licencia y datos de conversión están junto al asset; el OBJ original se puede convertir con `python tools/convert_cc0_obj.py`. La música de victoria es **Favela Funk** de APMOfficial, Creator Store ID `1841682637`; es un asset gratuito para experiencias Roblox, no dominio público. La danza es una adaptación manual para rigs R6 y R15 de la referencia indicada por el usuario, no un emote descargado.
 
 ## Comprobación de esta versión
 
