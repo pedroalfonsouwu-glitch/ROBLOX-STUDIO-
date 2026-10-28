@@ -7,13 +7,13 @@ return {
         TreeDetail = "Simple", -- Simple: 8 piezas por árbol; Detailed: geometría CC0 original.
     },
     Round = {
-        MinimumPlayers = 2, IntermissionSeconds = 12, DurationSeconds = 300,
-        DaySeconds = 65, NightTransitionSeconds = 10, ResultsSeconds = 8,
+        MinimumPlayers = 2, IntermissionSeconds = 8, DurationSeconds = 240,
+        DaySeconds = 50, NightTransitionSeconds = 10, ResultsSeconds = 8,
         StudioSoloPractice = false,
         AllowAI = true,
         FixedSeed = 0, -- 0 = una semilla nueva por ronda; otro entero = reproducible.
     },
-    Player = { WalkSpeed = 16, WolfSpeed = 27, Health = 100, WolfHealth = 150 },
+    Player = { WalkSpeed = 20, WolfSpeed = 32, Health = 100, WolfHealth = 150 },
     AI = { ThinkInterval = 0.25, TargetInterval = 1, PathInterval = 2, MaxWaypoints = 48 },
     Combat = {
         Range = 10, WolfDamage = 35, BladeDamage = 28, Cooldown = 1.1,

@@ -82,7 +82,7 @@ function BotController.create(spawnPosition)
     local grip = Instance.new("Attachment")
     grip.Name, grip.Position, grip.Parent = "RightGripAttachment", V(0, -1, 0), rightArm
     local hum = Instance.new("Humanoid")
-    hum.DisplayName, hum.WalkSpeed, hum.MaxHealth, hum.Health = "Luna (IA)", 16, 100, 100
+    hum.DisplayName, hum.WalkSpeed, hum.MaxHealth, hum.Health = "Luna (IA)", bounded(Config.Player and Config.Player.WalkSpeed, 16, 8, 40), 100, 100
     hum.UseJumpPower, hum.JumpHeight, hum.HipHeight = false, 7.2, 0
     hum.BreakJointsOnDeath, hum.RequiresNeck = false, true
     hum.NameDisplayDistance, hum.HealthDisplayDistance = 70, 40
@@ -141,6 +141,7 @@ function BotController.start(actor, context)
     local path = PathfindingService:CreatePath({ AgentRadius = 2, AgentHeight = 5, AgentCanJump = true, AgentCanClimb = true, WaypointSpacing = 6, Costs = { Water = 20 } })
     local generation, pathTask, pathBusy, pathReady, waypoints, waypointIndex = 0, nil, false, false, {}, 1
     local target, kind, goal, targetHuman, heldTarget
+    local patrolSite, patrolCursor = nil, 0
     local selectAt, pathAt, attackAt, defendAt, lungeAt = 0, 0, 0, 0, 0
     local thoughtTime, reactionTime = 0, 0
     local lastHealth, retaliateUntil = hum.Health, 0
@@ -212,6 +213,41 @@ function BotController.start(actor, context)
         end
         return selected
     end
+    local function nextPatrolPoint(world)
+        local sites = world and world.sites or {}
+        if #sites == 0 then return nil end
+        local selected, selectedPoint, selectedDistance
+        for offset = 1, #sites do
+            local index = (patrolCursor + offset - 1) % #sites + 1
+            local site = sites[index]
+            if site ~= patrolSite and site.frame then
+                local point = site.frame:PointToWorldSpace(V(0, (site.elevation or 0) + 4, -7))
+                local distance = (point - root.Position).Magnitude
+                if distance > 12 and (not selectedDistance or distance < selectedDistance) then
+                    selected, selectedPoint, selectedDistance = site, point, distance
+                end
+            end
+        end
+        if not selected then
+            for offset = 1, #sites do
+                local index = (patrolCursor + offset - 1) % #sites + 1
+                local site = sites[index]
+                if site ~= patrolSite and site.frame then
+                    selected = site
+                    selectedPoint = site.frame:PointToWorldSpace(V(0, (site.elevation or 0) + 4, -7))
+                    break
+                end
+            end
+        end
+        if selected then
+            for index, site in ipairs(sites) do
+                if site == selected then patrolCursor = index; break end
+            end
+            patrolSite = selected
+            return selectedPoint
+        end
+        return nil
+    end
     local function chooseTarget(now)
         diagnostics.selections += 1
         local ownWolf = context.getRole(actor) == "HombreLobo"
@@ -247,11 +283,24 @@ function BotController.start(actor, context)
             local statue = nearestObject(world.statues, "Destroyed", now)
             if statue then setTarget(statue, "Statue", approach(statue, world)); return end
         end
-        if companion and companionDistance > 15 then
+        local continuingPatrol = companion and kind == "Patrol" and target == companion.Character and goal
+            and V(root.Position.X - goal.X, 0, root.Position.Z - goal.Z).Magnitude > 8
+        if continuingPatrol then
+            setTarget(companion.Character, "Patrol", goal, companion)
+        elseif companion and companionDistance > 15 then
             local delta = root.Position - companionRoot.Position
             local horizontal = V(delta.X, 0, delta.Z)
             local offset = horizontal.Magnitude > 0.1 and horizontal.Unit * 14 or V(14, 0, 0)
             setTarget(companion.Character, "Follow", companionRoot.Position + offset, companion)
+        elseif companion then
+            local patrolPoint = nextPatrolPoint(world)
+            if patrolPoint then setTarget(companion.Character, "Patrol", patrolPoint, companion)
+            else
+                local delta = root.Position - companionRoot.Position
+                local horizontal = V(delta.X, 0, delta.Z)
+                local offset = horizontal.Magnitude > 0.1 and horizontal.Unit * 14 or V(14, 0, 0)
+                setTarget(companion.Character, "Follow", companionRoot.Position + offset, companion)
+            end
         else setTarget(nil, nil, nil) end
     end
     local function requestPath(now)

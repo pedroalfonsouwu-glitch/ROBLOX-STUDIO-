@@ -4,7 +4,7 @@ local TweenService = game:GetService("TweenService")
 local Workspace = game:GetService("Workspace")
 local NPCBehavior = {}
 local CHECK_INTERVAL, NEAR_DISTANCE, DIALOG_DISTANCE = 0.25, 96, 20
-local DIALOG_TTL, WALK_SPEED = 30, 2.5
+local DIALOG_TTL, WALK_SPEED = 30, 3.5
 local dialogSerial = 0 -- Monotonic across generated worlds in this server.
 
 local function playerRoot(player)
