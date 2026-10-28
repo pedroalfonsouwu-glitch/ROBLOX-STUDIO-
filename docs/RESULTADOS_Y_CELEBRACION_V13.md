@@ -8,6 +8,8 @@ El servidor conserva el rol de la ronda incluso después de que el jugador muere
 
 Se comprobaron los cuatro casos reales: Ejecutor gana, Hombre Lobo gana, Ejecutor pierde ante Luna y Hombre Lobo pierde ante Luna. La prueba nativa de Studio completó ocho rondas —cuatro repeticiones naturales mientras se sorteaban los roles— y **27/27 comprobaciones**. El auditor observó daño y muerte normales, respawn real, resultado privado, cámara y sonido; no escribió Health ni roles, no llamó a `LoadCharacter` ni sustituyó la cámara de producción. No hubo errores de scripts y las 14 fuentes temporales de prueba se restauraron.
 
+La primera observación cerraba 1,2 s después de terminar la pantalla; una recreación natural del personaje llegó 11,1 s después de la muerte, por lo que la prueba la clasificó prematuramente como fallo. El auditor ahora mantiene la observación hasta `Players.RespawnTime + 12 s`, registra `Died → CharacterAdded` y exige un personaje nuevo con vida positiva, sin forzar la recarga. La repetición corregida pasó **27/27 comprobaciones** sin errores de scripts; no hizo falta cambiar el código del juego.
+
 ## Baile y audio
 
 La coreografía es una adaptación manual de 21 poses tomadas como referencia del [video indicado por el usuario](https://www.youtube.com/shorts/bTu6kDbRigo). Se redujo el vaivén de piernas; se anima el cuerpo sin trasladar al ganador fuera del escenario. La prueba separada verificó los cuatro rigs humano/lobo R6/R15: **4/4**, articulaciones móviles y marcos de reposo intactos. No es un emote descargado ni una captura exacta del video.
