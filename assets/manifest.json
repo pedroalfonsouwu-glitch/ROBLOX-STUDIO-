@@ -1,0 +1,20 @@
+{
+  "package": "Nature Kit",
+  "version_in_download": "2.1",
+  "author": "Kenney",
+  "license": "CC0-1.0",
+  "source": "https://kenney.nl/assets/nature-kit",
+  "download": "https://kenney.nl/media/pages/assets/nature-kit/37ac38a37b-1677698939/kenney_nature-kit.zip",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "downloaded_on": "2026-10-09",
+  "sha256": "fa7974a0d342bfe63c38664ba9f8ec1a4aab8ea25f099bdc56870e33588c4d9d",
+  "integrated_model": "Models/OBJ format/tree_pineSmallD.obj",
+  "conversion": "OBJ triangles to WedgeParts; omit downward interior caps; normalize height to 20 studs",
+  "tools": {
+    "luau": {
+      "version": "0.741",
+      "source": "https://github.com/luau-lang/luau/releases/tag/0.741",
+      "archive_sha256": "be90c3223f3dc26777ef234244c2b1eae16b3c574f1ab7d1446972f72c28cab1"
+    }
+  }
+}

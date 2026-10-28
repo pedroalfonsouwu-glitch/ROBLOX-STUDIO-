@@ -11,3 +11,15 @@ sourcemap.json
 *.rbxl
 *.rbxl.lock
 *.rbxlx
+
+# Ejemplo procedural: descargas locales y herramientas
+/build/
+/.tools/
+/assets/downloads/
+/assets/source/
+/assets/original/
+/docs/evidence/
+/tools/audit/
+/AUDIT_ROBLOX_ZERO_LOSS.md
+/aftman.toml
+/template.project.json

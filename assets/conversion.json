@@ -1,0 +1,9 @@
+{
+    "source":  "assets\\original\\tree_pineSmallD.obj",
+    "source_triangles":  54,
+    "visible_triangles":  28,
+    "omitted_caps":  26,
+    "wedge_parts":  56,
+    "height_studs":  20,
+    "output":  "assets\\roblox\\Tree.rbxmx"
+}

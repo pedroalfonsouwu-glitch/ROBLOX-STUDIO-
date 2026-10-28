@@ -1,120 +1,133 @@
 {
-  "name": "Game 1",
+  "name": "Hombre Lobo - Bosque procedural",
   "tree": {
     "$className": "DataModel",
-    "Lighting": {
-      "$properties": {
-        "Ambient": [
-          0.38823530077934265,
-          0.3607843220233917,
-          0.3019607961177826
-        ],
-        "Brightness": 2.5,
-        "EnvironmentDiffuseScale": 1.0,
-        "EnvironmentSpecularScale": 1.0,
-        "FogColor": [
-          0.7529412508010864,
-          0.7529412508010864,
-          0.7529412508010864
-        ],
-        "GeographicLatitude": -19.996973037719727,
-        "GlobalShadows": true,
-        "LightingStyle": "Realistic",
-        "OutdoorAmbient": [
-          0.5607843399047852,
-          0.45490196347236633,
-          0.364705890417099
-        ],
-        "Outlines": false,
-        "PrioritizeLightingQuality": true,
-        "ShadowSoftness": 0.0,
-        "Technology": "Future",
-        "TimeOfDay": "13:45:37"
-      },
-      "$attributes": {
-        "UseCurrentLighting": false
-      },
-      "$path": "src/Lighting"
-    },
     "ReplicatedStorage": {
-      "$path": "src/ReplicatedStorage"
+      "$className": "ReplicatedStorage",
+      "HombreLobo": {
+        "$path": "src/HombreLobo/Shared"
+      }
     },
     "ServerScriptService": {
-      "$path": "src/ServerScriptService"
+      "$className": "ServerScriptService",
+      "HombreLobo": {
+        "$path": "src/HombreLobo/Server"
+      }
     },
     "ServerStorage": {
-      "$path": "src/ServerStorage"
-    },
-    "SoundService": {
-      "$properties": {
-        "RespectFilteringEnabled": true
-      },
-      "$path": "src/SoundService"
-    },
-    "StarterGui": {
-      "$properties": {
-        "ScreenOrientation": "Sensor"
-      },
-      "$path": "src/StarterGui"
-    },
-    "StarterPack": {
-      "$path": "src/StarterPack"
+      "$className": "ServerStorage",
+      "AssetTemplates": {
+        "$path": "assets/roblox"
+      }
     },
     "StarterPlayer": {
+      "$className": "StarterPlayer",
       "$properties": {
-        "AvatarJointUpgrade": "Enabled",
-        "CameraMaxZoomDistance": 128.0,
-        "CharacterBreakJointsOnDeath": false,
-        "CharacterUseJumpPower": false
+        "CameraMaxZoomDistance": 75,
+        "CharacterUseJumpPower": false,
+        "DevTouchMovementMode": "DynamicThumbstick"
       },
-      "$path": "src/StarterPlayer"
+      "StarterPlayerScripts": {
+        "$className": "StarterPlayerScripts",
+        "HombreLobo": {
+          "$path": "src/HombreLobo/Client"
+        }
+      }
     },
-    "Teams": {
-      "$path": "src/Teams"
+    "StarterGui": {
+      "$className": "StarterGui",
+      "$properties": {
+        "ScreenOrientation": "Sensor"
+      }
+    },
+    "Lighting": {
+      "$className": "Lighting",
+      "$properties": {
+        "Ambient": [
+          0.25,
+          0.29,
+          0.36
+        ],
+        "OutdoorAmbient": [
+          0.3,
+          0.34,
+          0.42
+        ],
+        "Brightness": 2.3,
+        "ClockTime": 16,
+        "GlobalShadows": true,
+        "Technology": "Future",
+        "LightingStyle": "Realistic",
+        "PrioritizeLightingQuality": true,
+        "ExposureCompensation": -0.3
+      },
+      "Atmosphere": {
+        "$className": "Atmosphere",
+        "$properties": {
+          "Density": 0.28,
+          "Offset": 0.15,
+          "Color": [
+            0.57,
+            0.66,
+            0.7
+          ],
+          "Decay": [
+            0.22,
+            0.28,
+            0.35
+          ]
+        }
+      }
     },
     "Workspace": {
+      "$className": "Workspace",
       "$properties": {
-        "CollisionGroupData": {
-          "BinaryString": "AQMABPv///8HRGVmYXVsdAEE+////xBTdHVkaW9TZWxlY3RhYmxlAgT8////GVBsdWdpbl9VbnNlbGVjdGFibGVfR3JvdXA="
-        },
-        "Gravity": 140.0,
-        "PhysicsSteppingMethod": "Fixed",
-        "PlayerCharacterDestroyBehavior": "Enabled",
-        "PlayerScriptsUseInputActionSystem": "Enabled",
-        "StreamOutBehavior": "Opportunistic",
+        "Gravity": 196.2,
         "StreamingEnabled": true,
-        "StreamingIntegrityMode": "PauseOutsideLoadedArea",
-        "WorldPivotData": {
-          "OptionalCFrame": {
-            "position": [
-              0.0,
-              0.0,
-              0.0
+        "StreamingMinRadius": 64,
+        "StreamingTargetRadius": 192,
+        "StreamOutBehavior": "Opportunistic",
+        "ModelStreamingBehavior": "Improved",
+        "FallenPartsDestroyHeight": -100
+      },
+      "Lobby": {
+        "$className": "Model",
+        "SpawnLocation": {
+          "$className": "SpawnLocation",
+          "$properties": {
+            "Anchored": true,
+            "Neutral": true,
+            "Duration": 0,
+            "Size": [
+              12,
+              1,
+              12
             ],
-            "orientation": [
-              [
-                1.0,
-                0.0,
-                0.0
-              ],
-              [
-                0.0,
-                1.0,
-                0.0
-              ],
-              [
-                0.0,
-                0.0,
-                1.0
-              ]
-            ]
+            "CFrame": [
+              0,
+              120.5,
+              0,
+              1,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              1
+            ],
+            "Color": [
+              0.22,
+              0.31,
+              0.29
+            ],
+            "Material": "Glass",
+            "Transparency": 0.65,
+            "CastShadow": false
           }
         }
-      },
-      "$attributes": {
-        "Rojo_Target_CurrentCamera": "62005c44bbb9e68b0ad5da8b00000dca"
-      },
-      "$path": "src/Workspace"
+      }
     }
   }
 }
